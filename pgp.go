@@ -30,6 +30,7 @@ type (
 		Password string `json:"password"`
 		Host     string `json:"host"`
 		Port     string `json:"port"`
+		Url      string `json:"url"`
 	}
 )
 
@@ -125,6 +126,7 @@ func (b *PGPuppeteer) CreateUser(d, u string) (*Credentials, error) {
 		Password: password,
 		Host:     b.host,
 		Port:     b.port,
+		Url:      fmt.Sprintf("postgresql://%s:%s@%s:%s/%s", username, password, b.host, b.port, dbname),
 	}, nil
 }
 
