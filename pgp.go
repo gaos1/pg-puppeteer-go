@@ -4,14 +4,14 @@ import (
 	"database/sql"
 	_ "github.com/lib/pq"
 
-	"os"
-	"fmt"
-	"strings"
-	"net"
-	"net/url"
 	"crypto/rand"
 	"encoding/base64"
 	"errors"
+	"fmt"
+	"net"
+	"net/url"
+	"os"
+	"strings"
 )
 
 type (
@@ -195,7 +195,7 @@ func (b *PGPuppeteer) userExists(username string) bool {
 // nodoc
 func (b *PGPuppeteer) exists(table, column, value string) bool {
 	var num string
-	b.conn.QueryRow("SELECT 1 FROM " + table + " WHERE " + column + " = $1", value).Scan(&num)
+	b.conn.QueryRow("SELECT 1 FROM "+table+" WHERE "+column+" = $1", value).Scan(&num)
 	return num != ""
 }
 
